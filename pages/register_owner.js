@@ -4,9 +4,23 @@ import Image from "next/image";
 import pb from "@/lib/pocketbase";
 
 export default function register() {
+  async function signUp(event){
+    event.preventDefault();
+
+    const data = {
+      "email": event.target.email.value,
+      "password": event.target.password.value,
+      "passwordConfirm": event.target.passwordConfirm.value
+  };
+
+  console.log(data);
+    await pb.collection('users_owner').create(data);
+    console.log("success");
+    
+  }
   return (
     <>
-     <form
+     <form onSubmit={signUp}
         className="card mx-auto my-10 w-96 bg-logo shadow-xl">
         <div className="mx-auto p-4">
           <Image src={logo} alt="logo" width={150} height={150}></Image>
@@ -16,7 +30,7 @@ export default function register() {
           <hr />
         </div>
         <div className="card-body">
-          <div class="mb-4">
+          <div className="mb-4">
             <label className="block text-white font-bold mb-2">Email</label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -24,7 +38,7 @@ export default function register() {
               type="email"
               placeholder="email" />
           </div>
-          <div class="mb-4">
+          <div className="mb-4">
             <label className="block text-white font-bold mb-2">Password</label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -32,17 +46,17 @@ export default function register() {
               type="password"
               placeholder="password"/>
           </div>
-          <div class="mb-4">
+          <div className="mb-4">
             <label className="block text-white font-bold mb-2">Confirm Password</label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="password"
+              id="passwordConfirm"
               type="password"
               placeholder="password"/>
           </div>
-          <div class="flex items-center justify-between">
+          <div className="flex items-center justify-between">
             <button
-              class="bg-white hover:bg-gray-200 text-logo font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-white hover:bg-gray-200 text-logo font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
               // disabled={isLoading}
             >
