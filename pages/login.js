@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import Head from "next/head";
-export default function Login(){
-    return(
-        <div className="container">
-            <input type="checkbox" id="check">
-                <div className=""></div>
-            </input>
-        </div>
-    )
-}
-=======
 import React from "react";
 import logo from "../public/logo.png";
 import Image from "next/image";
@@ -87,7 +75,7 @@ export default function login() {
               class="inline-block align-baseline font-bold text-sm text-white hover:text-gray-200 "
               href="#"
             >
-              Forgot Password?
+              Forgot Password? 
             </a>
           </div>
         </div>
@@ -95,4 +83,4 @@ export default function login() {
     </>
   );
 }
->>>>>>> 12f20c7739f1d1871cb739cf003540f3b2f9402b
+
