@@ -76,7 +76,7 @@ export default function Header() {
               </a>
               <ul className="p-2 bg-logo">
                 <li>
-                  <a>Sign Up</a>
+                  <Link href="/register">Sign Up</Link>
                 </li>
                 <li>
                   <Link href="/register_owner">Sign Up for owner</Link>
