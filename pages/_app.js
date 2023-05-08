@@ -2,11 +2,8 @@ import '@/styles/globals.css'
 import Header from '../components/Header'
 import Head from 'next/head'
 import Script from 'next/script'
-<<<<<<< HEAD
 import Footer from '@/components/Footer'
-=======
 import { QueryClient, QueryClientProvider } from 'react-query';
->>>>>>> 12f20c7739f1d1871cb739cf003540f3b2f9402b
 
 export default function App({ Component, pageProps }) {
 const queryClient = new QueryClient()
@@ -22,11 +19,8 @@ const queryClient = new QueryClient()
     <QueryClientProvider client={queryClient}>
     <Header/>
     <Component {...pageProps} />
-<<<<<<< HEAD
-    <Footer/>
-=======
     </QueryClientProvider>
->>>>>>> 12f20c7739f1d1871cb739cf003540f3b2f9402b
+    <Footer/>
     </>
   )
 }

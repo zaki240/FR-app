@@ -4,7 +4,6 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <>
     <footer className="footer p-10 bg-logo text-base-content">
   <div>
   <Image src={logo} alt='logo' width={120} height={120}></Image>
@@ -31,6 +30,5 @@ export default function Footer() {
     <a className="link link-hover">Cookie policy</a>
   </div>
 </footer>
-    </>
   )
 }
