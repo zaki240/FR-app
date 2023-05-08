@@ -2,8 +2,10 @@ import '@/styles/globals.css'
 import Header from '../components/Header'
 import Head from 'next/head'
 import Script from 'next/script'
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 export default function App({ Component, pageProps }) {
+const queryClient = new QueryClient()
   return (
     <>
     <Head>
@@ -13,8 +15,10 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
         <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
     </Head>
+    <QueryClientProvider client={queryClient}>
     <Header/>
     <Component {...pageProps} />
+    </QueryClientProvider>
     </>
   )
 }
