@@ -14,7 +14,7 @@ export default function register() {
   };
 
   console.log(data);
-    await pb.collection('users').create(data);
+    await pb.collection('users_owner').create(data);
     console.log("success");
     
   }
@@ -36,7 +36,6 @@ export default function register() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="email"
               type="email"
-              name='email'
               placeholder="email" />
           </div>
           <div className="mb-4">
@@ -45,7 +44,6 @@ export default function register() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="password"
               type="password"
-              name="password"
               placeholder="password"/>
           </div>
           <div className="mb-4">
@@ -54,7 +52,6 @@ export default function register() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="passwordConfirm"
               type="password"
-              name="passwordConfirm"
               placeholder="password"/>
           </div>
           <div className="flex items-center justify-between">
