@@ -84,7 +84,7 @@ export default function login() {
               class="inline-block align-baseline font-bold text-sm text-white hover:text-gray-200 "
               href="#"
             >
-              Forgot Password?
+              Forgot Password? 
             </a>
           </div>
         </div>

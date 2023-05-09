@@ -57,7 +57,7 @@ export default function Header() {
                   <a>Sign In </a>
                 </li>
                 <li>
-                  <Link href="/login_owner">Sign In for owner</Link>
+                  <Link href="/login">Sign In for owner</Link>
                 </li>
               </ul>
             </li>
@@ -76,10 +76,10 @@ export default function Header() {
               </a>
               <ul className="p-2 bg-logo">
                 <li>
-                  <Link href="/register">Sign Up</Link>
+                  <a>Sign Up</a>
                 </li>
                 <li>
-                  <Link href="/register_owner">Sign Up for owner</Link>
+                  <a>Sign Up for owner</a>
                 </li>
               </ul>
             </li>
