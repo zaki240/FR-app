@@ -1,27 +1,29 @@
-import React from 'react'
+import React from "react";
 import logo from "../public/logo.png";
 import Image from "next/image";
 import pb from "@/lib/pocketbase";
 
 export default function register() {
-  async function signUp(event){
+  async function signUp(event) {
     event.preventDefault();
 
     const data = {
-      "email": event.target.email.value,
-      "password": event.target.password.value,
-      "passwordConfirm": event.target.passwordConfirm.value
-  };
+      email: event.target.email.value,
+      password: event.target.password.value,
+      emailVisibility: true,
+      passwordConfirm: event.target.passwordConfirm.value,
+    };
 
-  console.log(data);
-    await pb.collection('users').create(data);
+    console.log(data);
+    const record = await pb.collection("users").create(data);
     console.log("success");
-    
   }
   return (
     <>
-     <form onSubmit={signUp}
-        className="card mx-auto my-10 w-96 bg-logo shadow-xl">
+      <form
+        onSubmit={signUp}
+        className="card mx-auto my-10 w-96 bg-logo shadow-xl"
+      >
         <div className="mx-auto p-4">
           <Image src={logo} alt="logo" width={150} height={150}></Image>
         </div>
@@ -36,8 +38,9 @@ export default function register() {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="email"
               type="email"
-              name='email'
-              placeholder="email" />
+              name="email"
+              placeholder="email"
+            />
           </div>
           <div className="mb-4">
             <label className="block text-white font-bold mb-2">Password</label>
@@ -46,16 +49,20 @@ export default function register() {
               id="password"
               type="password"
               name="password"
-              placeholder="password"/>
+              placeholder="password"
+            />
           </div>
           <div className="mb-4">
-            <label className="block text-white font-bold mb-2">Confirm Password</label>
+            <label className="block text-white font-bold mb-2">
+              Confirm Password
+            </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="passwordConfirm"
               type="password"
               name="passwordConfirm"
-              placeholder="password"/>
+              placeholder="password"
+            />
           </div>
           <div className="flex items-center justify-between">
             <button
@@ -70,5 +77,5 @@ export default function register() {
         </div>
       </form>
     </>
-  )
+  );
 }

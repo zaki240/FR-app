@@ -5,26 +5,35 @@ import pb from "@/lib/pocketbase";
 import { useForm } from "react-hook-form";
 import useLogin from "@/hooks/useLogin";
 import useLogout from "@/hooks/useLogout";
+import { useRouter } from "next/router";
 
 export default function login() {
   const logout = useLogout();
   const { mutate: login, isLoading, isError } = useLogin();
   const { register, handleSubmit, reset } = useForm();
+  const router = useRouter();
 
-  const isLoggedIn = pb.authStore.isValid;
+  // const isLoggedIn = pb.authStore.isValid;
 
   async function onSubmit(data) {
-    login({ email: data.email, password: data.password });
+    login(
+      { email: data.email, password: data.password },
+      {
+        onSuccess: () => {
+          router.push("/");
+        },
+      }
+    );
     reset();
   }
-  if (isLoggedIn) {
-    return (
-      <>
-        <h1>Logged In: {pb.authStore.model.email}</h1>
-        <button onClick={logout}>Log Out</button>
-      </>
-    );
-  }
+  // if (isLoggedIn) {
+  //   return (
+  //     <>
+  //       <h1>Logged In: {pb.authStore.model.email}</h1>
+  //       <button onClick={logout}>Log Out</button>
+  //     </>
+  //   );
+  // }
 
   return (
     <>
