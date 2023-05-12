@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import logo from "../public/logo.png";
 import Link from "next/link";
+// import { BiHome } from "react-icons/fa";
 
 export default function Header() {
   return (
@@ -37,6 +38,8 @@ export default function Header() {
             </button>
           </div>
         </div>
+        {/* <FontAwesomeIcon icon="fa-regular fa-house" /> */}
+        {/* <BiHome /> */}
         <div className="flex-none text-white mr-12 ml-5">
           <ul className="menu menu-horizontal px-1">
             <li tabIndex={0}>
@@ -54,10 +57,10 @@ export default function Header() {
               </a>
               <ul className="p-2 bg-logo">
                 <li>
-                  <a>Sign In </a>
+                  <Link href="/login">Sign In</Link>
                 </li>
                 <li>
-                  <Link href="/login">Sign In for owner</Link>
+                  <Link href="/login_owner">Sign In for owner</Link>
                 </li>
               </ul>
             </li>

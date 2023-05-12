@@ -3,13 +3,13 @@ import logo from "../public/logo.png";
 import Image from "next/image";
 import pb from "@/lib/pocketbase";
 import { useForm } from "react-hook-form";
-import useLoginR from "@/hooks/useLoginR";
+import useLogin from "@/hooks/useLogin";
 import useLogout from "@/hooks/useLogout";
 import { useRouter } from "next/router";
 
 export default function login() {
   const logout = useLogout();
-  const { mutate: login, isLoading, isError } = useLoginR();
+  const { mutate: login, isLoading, isError } = useLogin();
   const { register, handleSubmit, reset } = useForm();
   const router = useRouter();
 
@@ -20,7 +20,7 @@ export default function login() {
       { email: data.email, password: data.password },
       {
         onSuccess: () => {
-          router.push("/");
+          router.push("/profile");
         },
       }
     );
