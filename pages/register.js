@@ -2,8 +2,10 @@ import React from "react";
 import logo from "../public/logo.png";
 import Image from "next/image";
 import pb from "@/lib/pocketbase";
+import { useRouter } from "next/router";
 
 export default function register() {
+  const router = useRouter();
   async function signUp(event) {
     event.preventDefault();
 
@@ -13,10 +15,11 @@ export default function register() {
       emailVisibility: true,
       passwordConfirm: event.target.passwordConfirm.value,
     };
-
-    console.log(data);
     const record = await pb.collection("users").create(data);
-    console.log("success");
+
+    // onSuccess: () => {
+    //   router.push("/profile");
+    // };
   }
   return (
     <>
@@ -68,6 +71,7 @@ export default function register() {
             <button
               className="bg-white hover:bg-gray-200 text-logo font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
+
               // disabled={isLoading}
             >
               {/* {isLoading ? "Loading" : "Login"} */}
