@@ -31,7 +31,7 @@ export default function Header() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
+                  strokeWidth="2                      "
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
               </svg>
@@ -79,10 +79,10 @@ export default function Header() {
               </a>
               <ul className="p-2 bg-logo">
                 <li>
-                  <a>Sign Up</a>
+                  <Link href="/register">Sign Up</Link>
                 </li>
                 <li>
-                  <a>Sign Up for owner</a>
+                  <Link href="/register_owner">Sign Up for Owner</Link>
                 </li>
               </ul>
             </li>
