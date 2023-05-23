@@ -15,11 +15,20 @@ export default function register() {
       emailVisibility: true,
       passwordConfirm: event.target.passwordConfirm.value,
     };
-    const record = await pb.collection("users").create(data);
+
+    let error
+    try {
+      const record = await pb.collection("users").create(data);
+    } catch(err) {
+      console.log(err)
+      error = "Email sudah digunakan"
+    }
+    
 
     // onSuccess: () => {
     //   router.push("/profile");
     // };
+    alert(error)
   }
   return (
     <>
