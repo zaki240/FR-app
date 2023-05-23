@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 
 export default home
 function home() {
@@ -11,7 +10,7 @@ function home() {
     </div>
 
     {/* Kolom */}
-    <div className="kolom-title   p-3  font-bold text-black text-xl">
+    <div className="kolom-title p-3 font-bold text-black text-xl">
       <h1>Rekomendasi Populer</h1>
 <div className="kolom-gambar p-4">
   <div className="konten-gambar ml-72 flex p-4 gap-6">
@@ -25,8 +24,7 @@ function home() {
       </div>
     </div>
     
-  <h1>GAMBAR 2</h1>
-  <h1>GAMBAR 3</h1>
+
   </div>
     <div className="konten-gambar ml-72 flex p-4 gap-6 text-4xl font-bold text-black">
     <h1 className='isiGambar text-4xl'>GAMBAR 4</h1>
