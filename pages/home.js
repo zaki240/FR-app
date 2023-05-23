@@ -28,7 +28,7 @@ export default function home({ res }) {
           <div className="konten-gambar ml-72 flex p-4 gap-6">
             <div className="gambar   font-bold text-black">
               <h1>{res.page}</h1>
-              <div className='grid grid-cols-3 gap-3'>
+              <div className='grid grid-cols-3 gap-15'>
               {res.items.map((value) => {
                 return (
                   <div>
@@ -45,6 +45,7 @@ export default function home({ res }) {
                       <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
                       <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                     </div>
+                    <h1 className='isiGambar text-4xl'>{value['alamat']}</h1>
                   </div>
                 );
               })}
