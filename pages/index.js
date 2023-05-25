@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const getStaticProps = async () => {
   const resultList = await fetch(
-    "https://jealous-garage.pockethost.io/api/collections/all_restaurant/records"
+    "https://jealous-garage.pockethost.io/api/collections/all_restaurant/records?page=1&perPage=6"
   );
   const res = await resultList.json();
   return { props: { res } };
@@ -33,7 +33,7 @@ export default function home({ res }) {
                 {res.items.map((value) => {
                   return (
                     <a
-                      href="/detailresto"
+                      href={`/detailresto/${value['id']}`}
                       className="p-3 border-solid border-2 rounded-md border-gray-300 shadow m-3 hover:scale-105"
                     >
                       <h1 className="isiGambar text-bold">{value["nama"]}</h1>
