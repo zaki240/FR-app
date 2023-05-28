@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import logo from "../public/logo.png";
 import Link from "next/link";
-// import { BiHome } from "react-icons/fa";
+import { AiFillHome } from "react-icons/ai";
 
 export default function Header() {
   return (
@@ -13,7 +13,7 @@ export default function Header() {
             <Image src={logo} alt="logo" width={0} height={0}></Image>
           </a>
         </div>
-        <div className="form-control">
+        <div className="form-control mr-12">
           <div className="input-group">
             <input
               type="text"
@@ -39,34 +39,16 @@ export default function Header() {
           </div>
         </div>
         {/* <FontAwesomeIcon icon="fa-regular fa-house" /> */}
-        {/* <BiHome /> */}
         <div className="flex-none text-white mr-12 ml-5">
-          <ul className="menu menu-horizontal px-1">
-            <li tabIndex={0}>
-              <a>
-                Sign In
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
-              </a>
-              <ul className="p-2 bg-logo">
-                <li>
-                  <Link href="/login">Sign In</Link>
-                </li>
-                <li>
-                  <Link href="/login_owner">Sign In for owner</Link>
-                </li>
-              </ul>
+          <ul className="menu menu-horizontal px-1 gap-2 font-bold">
+            <li>
+              <Link href="/">
+                <AiFillHome className="text-xl" />
+              </Link>
             </li>
             <li tabIndex={0}>
               <a>
-                Sign Up
+                FR for Owner
                 <svg
                   className="fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -79,12 +61,18 @@ export default function Header() {
               </a>
               <ul className="p-2 bg-logo">
                 <li>
-                  <Link href="/register">Sign Up</Link>
+                  <Link href="/login_owner">Login</Link>
                 </li>
                 <li>
-                  <Link href="/register_owner">Sign Up for Owner</Link>
+                  <Link href="/register_owner">Sign Up </Link>
                 </li>
               </ul>
+            </li>
+            <li className=" border-2 rounded">
+              <Link href="/login">Login</Link>
+            </li>
+            <li className="bg-white text-logo rounded">
+              <Link href="/register">Sign Up</Link>
             </li>
           </ul>
         </div>
