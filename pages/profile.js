@@ -72,6 +72,16 @@ export default function profile() {
                 {userModel && new Date(userModel?.created).toDateString()}
               </h3>
             </div>
+            <div
+              className=" my-3 "
+              onClick={() => {
+                router.push("/CreateR");
+              }}
+            >
+              <button className="border border-black rounded p-2">
+                Create Your Restaurant
+              </button>
+            </div>
           </div>
         </div>
       </div>
