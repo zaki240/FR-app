@@ -1,8 +1,9 @@
 // import Image from "next/image";
 import React, { useEffect, useState } from "react";
+// import logo from "../public/logo.png";
+import { MdDateRange } from "react-icons/md";
 import pb from "@/lib/pocketbase";
 import { useRouter } from "next/router";
-import { MdDateRange } from "react-icons/md";
 
 export default function profile() {
   const router = useRouter();
@@ -23,9 +24,7 @@ export default function profile() {
     const file = e.target.files[0];
     const formData = new FormData();
     formData.append("avatar", file);
-    const update = await pb
-      .collection("users_owner")
-      .update(userModel.id, formData);
+    const update = await pb.collection("users").update(userModel.id, formData);
     setImageUrl(pb.files.getUrl(pb.authStore.model, update.avatar));
   }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../public/logo.png";
+import logo from "../public/logo.jpg";
 import Image from "next/image";
 import pb from "@/lib/pocketbase";
 import { useRouter } from "next/router";
@@ -11,24 +11,25 @@ export default function register() {
 
     const data = {
       email: event.target.email.value,
+      username: event.target.username.value,
       password: event.target.password.value,
       emailVisibility: true,
       passwordConfirm: event.target.passwordConfirm.value,
     };
 
-    let error
+    let error;
     try {
       const record = await pb.collection("users").create(data);
-    } catch(err) {
-      console.log(err)
-      error = "Email sudah digunakan"
+      router.push("/login");
+    } catch (err) {
+      console.log(err);
+      error = "Email sudah digunakan";
+      alert(error);
     }
-    
 
     // onSuccess: () => {
     //   router.push("/profile");
     // };
-    alert(error)
   }
   return (
     <>
@@ -52,6 +53,16 @@ export default function register() {
               type="email"
               name="email"
               placeholder="email"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-white font-bold mb-2">Username</label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="username"
+              name="username"
+              placeholder="username"
             />
           </div>
           <div className="mb-4">

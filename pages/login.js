@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../public/logo.png";
+import logo from "../public/logo.jpg";
 import Image from "next/image";
 import pb from "@/lib/pocketbase";
 import { useForm } from "react-hook-form";
@@ -20,7 +20,7 @@ export default function login() {
       { email: data.email, password: data.password },
       {
         onSuccess: () => {
-          router.push("/");
+          router.push("/profileU");
         },
       }
     );
@@ -72,7 +72,7 @@ export default function login() {
               {...register("password")}
             />
           </div>
-          <div class="flex items-center justify-between">
+          <div class="flex items-center justify-center">
             <button
               class="bg-white hover:bg-gray-200 text-logo font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
@@ -80,12 +80,12 @@ export default function login() {
             >
               {isLoading ? "Loading" : "Login"}
             </button>
-            <a
+            {/* <a
               class="inline-block align-baseline font-bold text-sm text-white hover:text-gray-200 "
               href="#"
             >
               Forgot Password?
-            </a>
+            </a> */}
           </div>
         </div>
       </form>

@@ -1,14 +1,14 @@
 import React from "react";
-import logo from "../public/logo.png";
+import logo from "../public/logo.jpg";
 import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="footer p-10 bg-logo text-base-content static bottom-0">
+    <footer className="footer p-10 bg-logo text-base-content">
       <div>
         <Image src={logo} alt="logo" width={120} height={120}></Image>
         <p>
-          ACME Industries Ltd.
+          Mangan
           <br />
           Providing reliable tech since 1992
         </p>

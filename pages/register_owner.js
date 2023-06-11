@@ -1,11 +1,13 @@
-import React from "react";
-import logo from "../public/logo.png";
+import React, { useState } from "react";
+import logo from "../public/logo.jpg";
 import Image from "next/image";
 import pb from "@/lib/pocketbase";
 import { useRouter } from "next/router";
 
 export default function register() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
   async function signUp(event) {
     event.preventDefault();
 
@@ -15,22 +17,26 @@ export default function register() {
       passwordConfirm: event.target.passwordConfirm.value,
     };
     let error;
+    setIsLoading(true);
     try {
-      const record = await pb.collection("users").create(data);
+      const record = await pb.collection("users_owner").create(data);
+      setIsLoading(false);
+      router.push("/login_owner");
     } catch (err) {
       console.log(err);
       error = "Email sudah digunakan";
+      alert(error);
+      setIsLoading(false);
     }
 
     // onSuccess: () => {
     //   router.push("/profile");
     // };
-    alert(error);
   }
-  const handleClick = (e) => {
-    e.preventDefault();
-    router.push("/login_owner");
-  };
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   router.push("/login_owner");
+  // };
   return (
     <>
       <form
@@ -78,11 +84,10 @@ export default function register() {
             <button
               className="bg-white hover:bg-gray-200 text-logo font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
-              onClick={handleClick}
-              // disabled={isLoading}
+              // onClick={handleClick}
+              disabled={isLoading}
             >
-              {/* {isLoading ? "Loading" : "Login"} */}
-              Sign Up
+              {isLoading ? "Loading" : "Sign Up"}
             </button>
           </div>
         </div>
